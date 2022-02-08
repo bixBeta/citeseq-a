@@ -75,3 +75,41 @@ FeaturePlot(sobj.sct, features = lv.feats, min.cutoff = "q05", max.cutoff = "q95
 DefaultAssay(sobj.sct) <- "ADT"
 FeaturePlot(sobj.sct, features = rownames(sobj.sct), min.cutoff = "q05", max.cutoff = "q95",
             ncol = 5, reduction = "umap", label = T, label.size = 5) 
+
+
+
+lv.feats2 = c("CD3E","CD247","CD4","CD8A","TRBC1","TRGC1","TRDC",
+              "CCR7","CD28","SELL","CD69","CCL5","IFNG","GATA3","IRF4",
+              "SPI1","KLRB1","AHR","CTLA4","FOXP3","NCAM1","FCGR3A","KLRK1",
+              "NCR3","LILRB1","CD14","LGALS2","S100A8","PF4","MS4A1","CD1C",
+              "HLA-DRA","ITGAX","CD34")
+
+s = DimPlot(sobj.sct, label = T, label.size = 5, ncol = 4, split.by = "SCT_snn_res.0.4")
+s1 = DimPlot(sobj.sct, label = T, label.size = 8, ncol = 1)
+png(filename = "ADT_TCELLS_GEX_UMAP_0.4.png", width = 3200, height = 1080, res = 150)
+s1 + s 
+dev.off()
+
+# new marker list 
+DefaultAssay(sobj.sct) <- "RNA"
+Idents(sobj.sct) <- sobj.sct$SCT_snn_res.0.4
+FeaturePlot(sobj.sct, features = lv.feats2, min.cutoff = "q05", max.cutoff = "q95",
+            ncol = 5, reduction = "umap", label = T, label.size = 5) 
+
+
+
+DefaultAssay(sobj.sct)  <- "RNA"
+Idents(sobj.sct)
+png(filename = "figures_ADT_TCELLS/lv2__dotPlot-gex-clusters.png", width = 1000, height = 1500)
+DotPlot(sobj.sct, assay="RNA", features=lv.feats2, col.min=-1.5,
+        group.by = "rnaClusterID", split.by="orig.ident",cols="Spectral", dot.scale=3) + RotatedAxis() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("dotPlot-gex-clusters") 
+dev.off()
+
+DefaultAssay(sobj.sct)  <- "ADT"
+Idents(sobj.sct)
+png(filename = "figures_ADT_TCELLS/lv2__dotPlot-adtAssay-groupBy-gex-clusters.png", width = 1000, height = 1500)
+DotPlot(sobj.sct, assay="ADT", features=rownames(sobj.sct), col.min=-1.5,
+        group.by = "rnaClusterID", split.by="orig.ident",cols="Spectral", dot.scale=3) + RotatedAxis() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("dotPlot-adtAssay-groupBy-gex-clusters") 
+dev.off()
