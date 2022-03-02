@@ -114,3 +114,16 @@ DotPlot(sobj.sct, assay="ADT", features=rownames(sobj.sct), col.min=-1.5,
         group.by = "rnaClusterID", split.by="orig.ident",cols="Spectral", dot.scale=3) + RotatedAxis() + 
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("dotPlot-adtAssay-groupBy-gex-clusters") 
 dev.off()
+
+png(filename = "figures_ADT_TCELLS/dotPlot-lv2-subset-Tcell.png", width = 1200, height = 800, res = 150)
+DotPlot(adt.sobj, assay="RNA", features=lv.feats2, col.min=-1.5,
+        group.by = "SCT_snn_res.0.4",cols="Spectral", dot.scale=3, cluster.idents = T, scale.by = 'size') + RotatedAxis() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("TCell Subset dotPlot-gex-clusters") 
+dev.off()
+
+png(filename = "figures_ADT_TCELLS/dotPlot-lv2-MEGA.png", width = 1200, height = 800, res = 150)
+DotPlot(sobj.sct, assay="RNA", features=lv.feats2, col.min=-1.5,
+        group.by = "SCT_snn_res.0.4",cols="Spectral", dot.scale=3, cluster.idents = T, scale.by = 'size') + RotatedAxis() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("MEGA dotPlot-gex-clusters") 
+dev.off()
+

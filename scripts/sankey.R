@@ -35,3 +35,20 @@ getSankey <- function(matrix, floor){
 
 
 getSankey(matrix = adt.v.gex, floor = 10)
+
+
+# sankey for comparing Tcell clusters
+
+tcell.clusters = as.factor(c("1","2","3","4","5"))
+
+sobj.sct.tcell.barcodes.orig.idents = sobj.sct.meta %>% 
+  rownames_to_column("BC") %>% 
+  filter(SCT_snn_res.0.4 %in% tcell.clusters) %>% 
+  select(BC, SCT_snn_res.0.4) %>% column_to_rownames("BC") 
+
+
+megaT.v.reT = as.matrix(table(sobj.sct.tcell.barcodes.orig.idents$SCT_snn_res.0.4, adt.sobj$SCT_snn_res.0.4))
+colnames(megaT.v.reT) = paste0("SUB_", colnames(megaT.v.reT))
+row.names(megaT.v.reT) = paste0("MEGA_", row.names(megaT.v.reT))
+
+getSankey(matrix = megaT.v.reT, floor = 10)

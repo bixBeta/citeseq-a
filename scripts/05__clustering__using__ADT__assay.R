@@ -39,7 +39,7 @@ DotPlot(sobj.sct, assay="RNA", features=lv.feats, col.min=-1.5,
         group.by = "rnaClusterID", split.by="orig.ident",cols="Spectral", dot.scale=3) + RotatedAxis() + 
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + ggtitle("dotPlot-gex-clusters") 
 dev.off()
-
+saveRDS(sobj.sct, "data/ADT_clustering__good_samples__doublet__filtered__sobj.sct___Cite__Seq__RNA__sct__harmony__ndim50__res0.4_0.5_0.6_0.8.RDS")
 
 ###--seurat vignette
 tsne_rnaClusters <- DimPlot(sobj.sct, reduction = "umap_adt", group.by = "rnaClusterID") + NoLegend()
@@ -52,4 +52,5 @@ tsne_adtClusters <- tsne_adtClusters + ggtitle("Clustering based on ADT signal")
 tsne_adtClusters <- LabelClusters(plot = tsne_adtClusters, id = "ident", size = 7)
 wrap_plots(list(tsne_rnaClusters, tsne_adtClusters), ncol = 2)
 
+sobj.sct.meta = sobj.sct@meta.data
 
