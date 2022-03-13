@@ -39,4 +39,5 @@ for (i in 1:length(all.res)) {
   getUmapDotPlots(sobj = adt.obj.added.clusts, res = all.res[i], feats = lvfeats)
 }
 
+saveRDS(object = adt.obj.added.clusts, file = "res_explorer/adt.tcells.object.allRES.RDS")
 
