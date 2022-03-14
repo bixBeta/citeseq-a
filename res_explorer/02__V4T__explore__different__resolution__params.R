@@ -41,7 +41,7 @@ for (i in 1:length(all.res)) {
 saveRDS(object = v4t.obj.added.clusts, file = "res_explorer/v4t.object.allRES.RDS")
 
 
-DefaultAssay(v4t.obj.added.clusts) <- "RNA"
+DefaultAssay(v4t.obj.added.clusts) <- "RNA"    
 
 png("res_explorer/featurePlots-SV4-Tcells-1.png", width = 1200, height = 1080, res = 100)
 FeaturePlot(v4t.obj.added.clusts, features = lvfeats[1:20], raster = F)
@@ -52,7 +52,25 @@ png("res_explorer/featurePlots-SV4-Tcells-2.png", width = 1200, height = 1080, r
 FeaturePlot(v4t.obj.added.clusts, features = lvfeats[21:42], raster = F)
 dev.off()
 
+v4t.obj.added.clusts.meta = v4t.obj.added.clusts@meta.data
+FeaturePlot(v4t.obj.added.clusts, features = "FAS", raster = F)
 
+highlight.clusters <- function(sobj, res, clust){
+  
+  Idents(sobj) <- sobj@meta.data[,paste0("SCT_snn_res.", res)]
+  sobj.meta = sobj@meta.data 
 
+  ch = rownames(sobj@meta.data[sobj@meta.data[,paste0("SCT_snn_res.", res)] == clust,])
+  
+  p = DimPlot(sobj, cells.highlight = ch, label = T, raster = F)
+  
+  print(p)
+  
+}
+for (i in levels(v4t.obj.added.clusts.meta$SCT_snn_res.0.8)) {
+  png(filename = paste0("highlight-cells-res0.8/clust", i, ".png"), width = 1000, height = 600, res = 100)
+  highlight.clusters(sobj = v4t.obj.added.clusts, res = 0.8, clust = i)
+  dev.off()
+}
 
 
