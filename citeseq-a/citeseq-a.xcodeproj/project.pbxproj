@@ -1,0 +1,92 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXFileReference section */
+		D0C6B81E27E443E100DCCAA7 /* highlight-cells-res0.8 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "highlight-cells-res0.8"; path = "../highlight-cells-res0.8"; sourceTree = "<group>"; };
+		D0C6B81F27E443E100DCCAA7 /* results */ = {isa = PBXFileReference; lastKnownFileType = folder; name = results; path = ../results; sourceTree = "<group>"; };
+		D0C6B82027E443E100DCCAA7 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = ../scripts; sourceTree = "<group>"; };
+		D0C6B82127E443E100DCCAA7 /* highlight-cells-res0.4 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "highlight-cells-res0.4"; path = "../highlight-cells-res0.4"; sourceTree = "<group>"; };
+		D0C6B82227E443E100DCCAA7 /* MapQuery_v4T_citeSeqT */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MapQuery_v4T_citeSeqT; path = ../MapQuery_v4T_citeSeqT; sourceTree = "<group>"; };
+		D0C6B82327E443E100DCCAA7 /* figures_ADT_TCELLS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = figures_ADT_TCELLS; path = ../figures_ADT_TCELLS; sourceTree = "<group>"; };
+		D0C6B82427E443E100DCCAA7 /* figures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = figures; path = ../figures; sourceTree = "<group>"; };
+		D0C6B82527E443E100DCCAA7 /* packages.R */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.rez; name = packages.R; path = ../packages.R; sourceTree = "<group>"; };
+		D0C6B82627E443E100DCCAA7 /* notebooks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = notebooks; path = ../notebooks; sourceTree = "<group>"; };
+		D0C6B82727E443E100DCCAA7 /* res_explorer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res_explorer; path = ../res_explorer; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		D0C6B81727E443B600DCCAA7 = {
+			isa = PBXGroup;
+			children = (
+				D0C6B82427E443E100DCCAA7 /* figures */,
+				D0C6B82327E443E100DCCAA7 /* figures_ADT_TCELLS */,
+				D0C6B82127E443E100DCCAA7 /* highlight-cells-res0.4 */,
+				D0C6B81E27E443E100DCCAA7 /* highlight-cells-res0.8 */,
+				D0C6B82227E443E100DCCAA7 /* MapQuery_v4T_citeSeqT */,
+				D0C6B82627E443E100DCCAA7 /* notebooks */,
+				D0C6B82527E443E100DCCAA7 /* packages.R */,
+				D0C6B82727E443E100DCCAA7 /* res_explorer */,
+				D0C6B81F27E443E100DCCAA7 /* results */,
+				D0C6B82027E443E100DCCAA7 /* scripts */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		D0C6B81827E443B600DCCAA7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1330;
+			};
+			buildConfigurationList = D0C6B81B27E443B600DCCAA7 /* Build configuration list for PBXProject "citeseq-a" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0C6B81727E443B600DCCAA7;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		D0C6B81C27E443B600DCCAA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		D0C6B81D27E443B600DCCAA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0C6B81B27E443B600DCCAA7 /* Build configuration list for PBXProject "citeseq-a" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0C6B81C27E443B600DCCAA7 /* Debug */,
+				D0C6B81D27E443B600DCCAA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D0C6B81827E443B600DCCAA7 /* Project object */;
+}
