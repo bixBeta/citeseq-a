@@ -64,13 +64,21 @@ highlight.clusters <- function(sobj, res, clust){
   
   p = DimPlot(sobj, cells.highlight = ch, label = T, raster = F)
   
+  
   print(p)
   
 }
-for (i in levels(v4t.obj.added.clusts.meta$SCT_snn_res.0.8)) {
-  png(filename = paste0("highlight-cells-res0.8/clust", i, ".png"), width = 1000, height = 600, res = 100)
-  highlight.clusters(sobj = v4t.obj.added.clusts, res = 0.8, clust = i)
+
+for (i in levels(v4t.obj.added.clusts.meta$SCT_snn_res.0.4)) {
+  png(filename = paste0("highlight-cells-res0.4/clust", i, ".png"), width = 1000, height = 600, res = 100)
+  highlight.clusters(sobj = v4t.obj.added.clusts, res = 0.4, clust = i)
   dev.off()
+}
+
+
+all.res
+for (i in 1:length(all.res)) {
+  highlight.clusters(sobj = v4t.obj.added.clusts, res = all.res[i], clust = )  
 }
 
 
